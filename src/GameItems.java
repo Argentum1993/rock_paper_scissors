@@ -18,6 +18,37 @@ public class GameItems {
     }
   }
 
+  public String getRandomItem(){
+    return nodes[(int)(Math.random() * nodes.length)].name;
+  }
+
+  public String get(int index){
+    if (index < 0 || index >= nodes.length)
+      return null;
+    return nodes[index].name;
+  }
+
+  public int size(){
+    return nodes.length;
+  }
+
+  public String fight(String first, String second){
+    Node iterator;
+    if (first.equals(second))
+      return null;
+    for (Node node : nodes){
+      if (node.name.equals(first)){
+        iterator = node.next;
+        for (int i = 0; i < median; i++) {
+          if (iterator.name.equals(second))
+            return second;
+        }
+        return first;
+      }
+    }
+    return null;
+  }
+
   private class Node{
     String name;
     Node next;
