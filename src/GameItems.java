@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class GameItems {
   private Node[] nodes;
   private int median;
@@ -42,6 +40,7 @@ public class GameItems {
         for (int i = 0; i < median; i++) {
           if (iterator.name.equals(second))
             return second;
+          iterator = iterator.next;
         }
         return first;
       }
